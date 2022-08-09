@@ -2,6 +2,7 @@ import discord
 import re
 import urllib.request
 from yt_dlp import YoutubeDL
+from tkinter import filedialog
 
 discord_token = 'MTAwNjQ0MzY0ODY2MzE2NzAyNg.GEjAQB.wrUwTZhxQb6gBmDkQ3AAvqGus3dQUeAvGTXBYI' # Discordbotのアクセストークン
 
@@ -36,16 +37,23 @@ async def on_message(message):
     return
     
   if msg == ">help":
-    await message.channel.send("コマンド : 説明\n```>yt-mp3 url : youtubeの動画をmp3でDL\n>yt-mp4 url : youtubeの動画をmp4でDL\n>tw-mp3 url : twitterの動画をmp3でDL\n>tw-mp4 url : twitterの動画をmp4でDL```")
+    await message.channel.send("コマンド : 説明\n```>yt-mp3 url : youtubeの動画をmp3でDL\n>yt-mp4 url : youtubeの動画をmp4でDL\n>tw-mp3 url : twitterの動画をmp3でDL\n>tw-mp4 url : twitterの動画をmp4でDL```※DLしたファイルの2次配布は止めましょう")
   
   #youtube mp3
   if msg.startswith(">yt-mp3") == True:
     url = re.sub(r'.', '', msg, count = 8)
     if check_url(url) == True:
       await message.channel.send("mp3でダウンロード中\n" + url)
+      filename = filedialog.asksaveasfilename(
+        title = "名前を付けて保存",
+        filetypes = [("mp3", ".mp3")], # ファイルフィルタ
+        initialdir = "./", # 自分自身のディレクトリ
+        defaultextension = "mp3"
+        )
+      print(filename)
       ydl_opts = {
                   'format': 'bestaudio/best',
-                  'outtmpl':'/download/%(title)s.mp3',
+                  'outtmpl': filename,
                   }
       with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
@@ -58,9 +66,16 @@ async def on_message(message):
     url = re.sub(r'.', '', msg, count = 8)
     if check_url(url) == True:
       await message.channel.send("mp4でダウンロード中\n" + url)
+      filename = filedialog.asksaveasfilename(
+        title = "名前を付けて保存",
+        filetypes = [("mp4", ".mp4")], # ファイルフィルタ
+        initialdir = "./", # 自分自身のディレクトリ
+        defaultextension = "mp4"
+        )
+      print(filename)
       ydl_opts = {
                   'format': 'best',
-                  'outtmpl':'/download/%(title)s.mp4',
+                  'outtmpl': filename,
                   }
       with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
@@ -73,9 +88,16 @@ async def on_message(message):
     url = re.sub(r'.', '', msg, count = 8)
     if check_url(url) == True:
       await message.channel.send("mp3でダウンロード中\n" + url)
+      filename = filedialog.asksaveasfilename(
+        title = "名前を付けて保存",
+        filetypes = [("mp3", ".mp3")], # ファイルフィルタ
+        initialdir = "./", # 自分自身のディレクトリ
+        defaultextension = "mp3"
+        )
+      print(filename)
       ydl_opts = {
                   'format': 'bestaudio/best',
-                  'outtmpl':'/download/%(title)s.mp3',
+                  'outtmpl': filename,
                   }
       with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
@@ -88,9 +110,16 @@ async def on_message(message):
     url = re.sub(r'.', '', msg, count = 8)
     if check_url(url) == True:
       await message.channel.send("mp4でダウンロード中\n" + url)
+      filename = filedialog.asksaveasfilename(
+        title = "名前を付けて保存",
+        filetypes = [("mp4", ".mp4")], # ファイルフィルタ
+        initialdir = "./", # 自分自身のディレクトリ
+        defaultextension = "mp4"
+        )
+      print(filename)
       ydl_opts = {
                   'format': 'best',
-                  'outtmpl':'/download/%(title)s.mp4',
+                  'outtmpl': filename,
                   }
       with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
