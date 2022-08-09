@@ -1,8 +1,9 @@
 import discord
 import re
 import urllib.request
+import youtube_dl
 
-discord_token = '*******' # Discordbotのアクセストークン
+discord_token = 'MTAwNjQ0MzY0ODY2MzE2NzAyNg.GEjAQB.wrUwTZhxQb6gBmDkQ3AAvqGus3dQUeAvGTXBYI' # Discordbotのアクセストークン
 
 # urlチェック関数
 def check_url(url):
@@ -40,7 +41,11 @@ async def on_message(message):
   if msg.startswith("!dl") == True:
     url = re.sub(r'.', '', msg, count = 4)
     if check_url(url) == True:
-      await message.channel.send("ダウンロード\n" + url)
+      await message.channel.send("ダウンロード中\n" + url)
+      ydl_opts = {}
+      with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+      await message.channel.send("ダウンロードが完了しました")
     else:
       await message.channel.send("urlが有効ではありません")
 
