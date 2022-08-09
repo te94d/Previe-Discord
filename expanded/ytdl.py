@@ -4,7 +4,7 @@ import urllib.request
 from yt_dlp import YoutubeDL
 from tkinter import filedialog
 
-discord_token = 'MTAwNjQ0MzY0ODY2MzE2NzAyNg.GEjAQB.wrUwTZhxQb6gBmDkQ3AAvqGus3dQUeAvGTXBYI' # Discordbotのアクセストークン
+discord_token = '*******' # Discordbotのアクセストークン
 
 # urlチェック関数
 def check_url(url):
