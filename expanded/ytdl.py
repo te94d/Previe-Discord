@@ -1,6 +1,8 @@
 import discord
 import re
 import urllib.request
+from yt_dlp import YoutubeDL
+from tkinter import filedialog
 
 discord_token = '*******' # Discordbotのアクセストークン
 
@@ -11,7 +13,7 @@ def check_url(url):
     try:
       f = urllib.request.urlopen(url)
       f.close()
-      if ("youtube" in url) == True or ("youtu.be" in url) == True:
+      if ("youtube" in url) == True or ("youtu.be" in url) == True or ("twitter" in url) == True:
         flag = True
       else:
         flag = False
@@ -34,13 +36,98 @@ async def on_message(message):
   if message.author.bot:
     return
     
-  if msg == "!cmd":
-    await message.channel.send("!dl url\nyoutubeの動画をDL")
+  if msg == ">help":
+    await message.channel.send("コマンド : 説明\n```>yt-mp3 url : youtubeの動画をmp3でDL\n>yt-mp4 url : youtubeの動画をmp4でDL\n>tw-mp3 url : twitterの動画をmp3でDL\n>tw-mp4 url : twitterの動画をmp4でDL```※DLしたファイルの2次配布は止めましょう")
   
-  if msg.startswith("!dl") == True:
-    url = re.sub(r'.', '', msg, count = 4)
+  #youtube mp3
+  if msg.startswith(">yt-mp3") == True:
+    url = re.sub(r'.', '', msg, count = 8)
     if check_url(url) == True:
-      await message.channel.send("ダウンロード\n" + url)
+      await message.channel.send("mp3でダウンロード中\n" + url)
+      filename = filedialog.asksaveasfilename(
+        title = "名前を付けて保存",
+        filetypes = [("mp3", ".mp3")], # ファイルフィルタ
+        initialdir = "./", # 自分自身のディレクトリ
+        initialfile = "youtube", # 名前の初期値
+        defaultextension = "mp3"
+        )
+      print(filename)
+      ydl_opts = {
+        'format': 'bestaudio/best',
+        'outtmpl': filename,
+        }
+      with YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+      await message.channel.send("ダウンロードが完了しました")
+    else:
+      await message.channel.send("urlが有効ではありません")
+  
+  #youtube mp4
+  if msg.startswith(">yt-mp4") == True:
+    url = re.sub(r'.', '', msg, count = 8)
+    if check_url(url) == True:
+      await message.channel.send("mp4でダウンロード中\n" + url)
+      filename = filedialog.asksaveasfilename(
+        title = "名前を付けて保存",
+        filetypes = [("mp4", ".mp4")], # ファイルフィルタ
+        initialdir = "./", # 自分自身のディレクトリ
+        initialfile = "youtube", # 名前の初期値
+        defaultextension = "mp4"
+        )
+      print(filename)
+      ydl_opts = {
+        'format': 'best',
+        'outtmpl': filename,
+        }
+      with YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+      await message.channel.send("ダウンロードが完了しました")
+    else:
+      await message.channel.send("urlが有効ではありません")
+
+#twitter mp3
+  if msg.startswith(">tw-mp3") == True:
+    url = re.sub(r'.', '', msg, count = 8)
+    if check_url(url) == True:
+      await message.channel.send("mp3でダウンロード中\n" + url)
+      filename = filedialog.asksaveasfilename(
+        title = "名前を付けて保存",
+        filetypes = [("mp3", ".mp3")], # ファイルフィルタ
+        initialdir = "./", # 自分自身のディレクトリ
+        initialfile = "twitter", # 名前の初期値
+        defaultextension = "mp3"
+        )
+      print(filename)
+      ydl_opts = {
+        'format': 'bestaudio/best',
+        'outtmpl': filename,
+        }
+      with YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+      await message.channel.send("ダウンロードが完了しました")
+    else:
+      await message.channel.send("urlが有効ではありません")
+  
+  #twitter mp4
+  if msg.startswith(">tw-mp4") == True:
+    url = re.sub(r'.', '', msg, count = 8)
+    if check_url(url) == True:
+      await message.channel.send("mp4でダウンロード中\n" + url)
+      filename = filedialog.asksaveasfilename(
+        title = "名前を付けて保存",
+        filetypes = [("mp4", ".mp4")], # ファイルフィルタ
+        initialdir = "./", # 自分自身のディレクトリ
+        initialfile = "twitter", # 名前の初期値
+        defaultextension = "mp4"
+        )
+      print(filename)
+      ydl_opts = {
+        'format': 'best',
+        'outtmpl': filename,
+        }
+      with YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+      await message.channel.send("ダウンロードが完了しました")
     else:
       await message.channel.send("urlが有効ではありません")
 
