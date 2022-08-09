@@ -1,7 +1,7 @@
 import discord
 import re
 import urllib.request
-import youtube_dl
+from yt_dlp import YoutubeDL
 
 discord_token = 'MTAwNjQ0MzY0ODY2MzE2NzAyNg.GEjAQB.wrUwTZhxQb6gBmDkQ3AAvqGus3dQUeAvGTXBYI' # Discordbotのアクセストークン
 
@@ -12,7 +12,7 @@ def check_url(url):
     try:
       f = urllib.request.urlopen(url)
       f.close()
-      if ("youtube" in url) == True or ("youtu.be" in url) == True:
+      if ("youtube" in url) == True or ("youtu.be" in url) == True or ("twitter" in url) == True:
         flag = True
       else:
         flag = False
@@ -35,15 +35,64 @@ async def on_message(message):
   if message.author.bot:
     return
     
-  if msg == "!cmd":
-    await message.channel.send("!dl url\nyoutubeの動画をDL")
+  if msg == ">help":
+    await message.channel.send("コマンド : 説明\n```>yt-mp3 url : youtubeの動画をmp3でDL\n>yt-mp4 url : youtubeの動画をmp4でDL\n>tw-mp3 url : twitterの動画をmp3でDL\n>tw-mp4 url : twitterの動画をmp4でDL```")
   
-  if msg.startswith("!dl") == True:
-    url = re.sub(r'.', '', msg, count = 4)
+  #youtube mp3
+  if msg.startswith(">yt-mp3") == True:
+    url = re.sub(r'.', '', msg, count = 8)
     if check_url(url) == True:
-      await message.channel.send("ダウンロード中\n" + url)
-      ydl_opts = {}
-      with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+      await message.channel.send("mp3でダウンロード中\n" + url)
+      ydl_opts = {
+                  'format': 'bestaudio/best',
+                  'outtmpl':'/download/%(title)s.mp3',
+                  }
+      with YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+      await message.channel.send("ダウンロードが完了しました")
+    else:
+      await message.channel.send("urlが有効ではありません")
+  
+  #youtube mp4
+  if msg.startswith(">yt-mp4") == True:
+    url = re.sub(r'.', '', msg, count = 8)
+    if check_url(url) == True:
+      await message.channel.send("mp4でダウンロード中\n" + url)
+      ydl_opts = {
+                  'format': 'best',
+                  'outtmpl':'/download/%(title)s.mp4',
+                  }
+      with YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+      await message.channel.send("ダウンロードが完了しました")
+    else:
+      await message.channel.send("urlが有効ではありません")
+
+#twitter mp3
+  if msg.startswith(">tw-mp3") == True:
+    url = re.sub(r'.', '', msg, count = 8)
+    if check_url(url) == True:
+      await message.channel.send("mp3でダウンロード中\n" + url)
+      ydl_opts = {
+                  'format': 'bestaudio/best',
+                  'outtmpl':'/download/%(title)s.mp3',
+                  }
+      with YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+      await message.channel.send("ダウンロードが完了しました")
+    else:
+      await message.channel.send("urlが有効ではありません")
+  
+  #twitter mp4
+  if msg.startswith(">tw-mp4") == True:
+    url = re.sub(r'.', '', msg, count = 8)
+    if check_url(url) == True:
+      await message.channel.send("mp4でダウンロード中\n" + url)
+      ydl_opts = {
+                  'format': 'best',
+                  'outtmpl':'/download/%(title)s.mp4',
+                  }
+      with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
       await message.channel.send("ダウンロードが完了しました")
     else:
