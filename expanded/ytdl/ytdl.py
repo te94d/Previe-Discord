@@ -3,7 +3,7 @@ import re
 import urllib.request
 
 
-discord_token = 'MTAwNjQ0MzY0ODY2MzE2NzAyNg.GAfOzN.NmwHUSCzqssnNFFqzs5sIwtZkCSYCuT8g5vu8Q' # Discordbotのアクセストークン
+discord_token = '*******' # Discordbotのアクセストークン
 youtube_url = 'https://www.youtube.com/watch?v=FIw-HUP7XK0' # youtubeのURLを指定
 
 # urlチェック関数
