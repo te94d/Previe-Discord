@@ -2,9 +2,7 @@ import discord
 import re
 import urllib.request
 
-
 discord_token = '*******' # Discordbotのアクセストークン
-youtube_url = 'https://www.youtube.com/watch?v=FIw-HUP7XK0' # youtubeのURLを指定
 
 # urlチェック関数
 def check_url(url):
