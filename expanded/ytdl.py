@@ -52,9 +52,9 @@ async def on_message(message):
         )
       print(filename)
       ydl_opts = {
-                  'format': 'bestaudio/best',
-                  'outtmpl': filename,
-                  }
+        'format': 'bestaudio/best',
+        'outtmpl': filename,
+        }
       with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
       await message.channel.send("ダウンロードが完了しました")
@@ -74,9 +74,9 @@ async def on_message(message):
         )
       print(filename)
       ydl_opts = {
-                  'format': 'best',
-                  'outtmpl': filename,
-                  }
+        'format': 'best',
+        'outtmpl': filename,
+        }
       with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
       await message.channel.send("ダウンロードが完了しました")
@@ -96,9 +96,9 @@ async def on_message(message):
         )
       print(filename)
       ydl_opts = {
-                  'format': 'bestaudio/best',
-                  'outtmpl': filename,
-                  }
+        'format': 'bestaudio/best',
+        'outtmpl': filename,
+        }
       with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
       await message.channel.send("ダウンロードが完了しました")
@@ -118,9 +118,9 @@ async def on_message(message):
         )
       print(filename)
       ydl_opts = {
-                  'format': 'best',
-                  'outtmpl': filename,
-                  }
+        'format': 'best',
+        'outtmpl': filename,
+        }
       with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
       await message.channel.send("ダウンロードが完了しました")
