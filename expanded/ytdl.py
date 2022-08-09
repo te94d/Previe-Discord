@@ -40,7 +40,7 @@ async def on_message(message):
   if msg.startswith("!dl") == True:
     url = re.sub(r'.', '', msg, count = 4)
     if check_url(url) == True:
-      await message.channel.send("downloadします\n" + url)
+      await message.channel.send("ダウンロード\n" + url)
     else:
       await message.channel.send("urlが有効ではありません")
 
