@@ -48,6 +48,7 @@ async def on_message(message):
         title = "名前を付けて保存",
         filetypes = [("mp3", ".mp3")], # ファイルフィルタ
         initialdir = "./", # 自分自身のディレクトリ
+        initialfile = "youtube", # 名前の初期値
         defaultextension = "mp3"
         )
       print(filename)
@@ -70,6 +71,7 @@ async def on_message(message):
         title = "名前を付けて保存",
         filetypes = [("mp4", ".mp4")], # ファイルフィルタ
         initialdir = "./", # 自分自身のディレクトリ
+        initialfile = "youtube", # 名前の初期値
         defaultextension = "mp4"
         )
       print(filename)
@@ -92,6 +94,7 @@ async def on_message(message):
         title = "名前を付けて保存",
         filetypes = [("mp3", ".mp3")], # ファイルフィルタ
         initialdir = "./", # 自分自身のディレクトリ
+        initialfile = "twitter", # 名前の初期値
         defaultextension = "mp3"
         )
       print(filename)
@@ -114,6 +117,7 @@ async def on_message(message):
         title = "名前を付けて保存",
         filetypes = [("mp4", ".mp4")], # ファイルフィルタ
         initialdir = "./", # 自分自身のディレクトリ
+        initialfile = "twitter", # 名前の初期値
         defaultextension = "mp4"
         )
       print(filename)
