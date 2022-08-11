@@ -5,9 +5,9 @@ discord botをつくっていく随時機能追加していきたい
 | コマンド | 説明 |
 |:--------------|:-----------|
 | >yt-mp3 [url] | youtubeの動画をmp3でDL |
-| >yt-mp4 [url] | youtubeの動画をmp3でDL |
+| >yt-mp4 [url] | youtubeの動画をmp4でDL |
 | >tw-mp3 [url] | twitterの動画をmp3でDL |
-| >tw-mp4 [url] | twitterの動画をmp3でDL |
+| >tw-mp4 [url] | twitterの動画をmp4でDL |
 | >help         | 各コマンドの表示 |
 
 ## 開発環境
