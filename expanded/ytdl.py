@@ -1,11 +1,11 @@
 import discord
 import re
+import os
 import urllib.request
 from discord.ext import commands
+from dotenv import load_dotenv
 from yt_dlp import YoutubeDL
 from tkinter import filedialog
-
-discord_token = 'MTAxMTUyMDIwMzA5NzY1MzI2OA.G7mruY.5yGBBAjwJlj9T1BzB6Aq4y9sKJfumm0tQMwMrg' # Discordbotのアクセストークン
 
 # urlチェック関数
 def check_url(url):
@@ -91,4 +91,6 @@ async def mp4(ctx,url):
   else:
     await ctx.send("urlが有効ではありません")
 
+load_dotenv()
+discord_token = os.getenv('discord_token')
 bot.run(discord_token)
