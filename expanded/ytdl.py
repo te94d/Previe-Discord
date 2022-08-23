@@ -1,11 +1,11 @@
 import discord
 import re
+import os
 import urllib.request
 from discord.ext import commands
+from dotenv import load_dotenv
 from yt_dlp import YoutubeDL
 from tkinter import filedialog
-
-discord_token = '******' # Discordbotのアクセストークン
 
 # urlチェック関数
 def check_url(url):
@@ -36,6 +36,10 @@ bot.remove_command('help')
 @bot.event
 async def on_ready():
   print("logged in as " + bot.user.name)
+  print(bot.user.id)  # ID
+  print('------')
+  activity = discord.Activity(name='コマンド一覧は >help ', type=discord.ActivityType.playing)
+  await bot.change_presence(activity=activity)
 
 @bot.command()
 async def help(ctx):
@@ -87,4 +91,6 @@ async def mp4(ctx,url):
   else:
     await ctx.send("urlが有効ではありません")
 
+load_dotenv()
+discord_token = os.getenv('discord_token')
 bot.run(discord_token)
