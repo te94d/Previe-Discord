@@ -17,6 +17,7 @@ discord botをつくっていく随時機能追加していきたい
 ```
 $ pip install -U discord
 $ pip install yt-dlp
+$ pip install python-dotenv
 ```
 ffmpegのページにアクセスしwindowsビルドのものをダウンロードする。  
 ダウンロードしたファイルを解凍し、binフォルダの中にある"ffmpeg.exe"をdiscordbotのpyファイルと同じ階層に置いておく。  
