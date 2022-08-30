@@ -3,13 +3,11 @@ import random
 import os
 from discord.ext import commands
 from dotenv import load_dotenv
-from sub import test
 from ytdl import extensions
 
 bot = commands.Bot(command_prefix='>')
 bot.remove_command('help')
 
-bot.add_cog(test(bot))
 bot.add_cog(extensions(bot))
 
 load_dotenv()

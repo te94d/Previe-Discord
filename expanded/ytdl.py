@@ -5,27 +5,32 @@ from discord.ext import commands
 from yt_dlp import YoutubeDL
 from tkinter import filedialog
 
+# checkマーク
+UnicodeCheck = "\N{White Heavy Check Mark}"
+# downloadマーク
+UnicodeDownload = "\N{Inbox Tray}"
+
+# urlチェック関数
+def check_url(url):
+  flag = True
+  if re.match(r"^https?:\/\/", url):
+    try:
+      f = urllib.request.urlopen(url)
+      f.close()
+      if ("youtube" in url) == True or ("youtu.be" in url) == True or ("twitter" in url) == True:
+        flag = True
+      else:
+        flag = False
+    except urllib.request.HTTPError:
+      flag = False
+    return flag
+  else:
+    flag = False
+    return flag
+
 class extensions(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
-  
-  # urlチェック関数
-  def check_url(url):
-    flag = True
-    if re.match(r"^https?:\/\/", url):
-      try:
-        f = urllib.request.urlopen(url)
-        f.close()
-        if ("youtube" in url) == True or ("youtu.be" in url) == True or ("twitter" in url) == True:
-          flag = True
-        else:
-          flag = False
-      except urllib.request.HTTPError:
-        flag = False
-      return flag
-    else:
-      flag = False
-      return flag
 
   @commands.Cog.listener()
   async def on_ready(self):
