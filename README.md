@@ -13,11 +13,12 @@ discord botをつくっていく随時機能追加していきたい
 - pip 22.2.2
 - discord.py 1.7.3
 - yt-dlp 2022.8.8
-## Installation
+## インストール
 ```
 $ pip install -U discord
 $ pip install yt-dlp
 $ pip install python-dotenv
 ```
 ffmpegのページにアクセスしwindowsビルドのものをダウンロードする。  
-ダウンロードしたファイルを解凍し、binフォルダの中にある"ffmpeg.exe"をdiscordbotのpyファイルと同じ階層に置いておく。  
+ダウンロードしたファイルを解凍し、binフォルダの中にある"ffmpeg.exe"をytdl.pyファイルと同じ階層に置いておく。  
+.envファイルを作成し、.env.sampleの中身を記述する。
