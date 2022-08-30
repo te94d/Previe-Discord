@@ -1,10 +1,10 @@
 import discord
 import re
+import os
 import urllib.request
+from dotenv import load_dotenv
 from yt_dlp import YoutubeDL
 from tkinter import filedialog
-
-discord_token = '******' # Discordbotのアクセストークン
 
 # urlチェック関数
 def check_url(url):
@@ -138,4 +138,6 @@ async def on_message(message):
     else:
       await message.channel.send("urlが有効ではありません")
 
+load_dotenv()
+discord_token = os.getenv('discord_token')
 client.run(discord_token)
