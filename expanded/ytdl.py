@@ -7,6 +7,8 @@ from tkinter import filedialog
 
 # checkマーク
 UnicodeCheck = "\N{White Heavy Check Mark}"
+# cancelマーク
+UnicodeCancel = "\N{No Entry Sign}"
 # downloadマーク
 UnicodeDownload = "\N{Inbox Tray}"
 
@@ -57,13 +59,16 @@ class extensions(commands.Cog):
         defaultextension = "mp3"
         )
       print(filename)
-      ydl_opts = {
-        'format': 'bestaudio/best',
-        'outtmpl': filename,
-        }
-      with YoutubeDL(ydl_opts) as ydl:
-        ydl.download([url])
-      await msg.add_reaction(UnicodeCheck)
+      if filename:
+        ydl_opts = {
+          'format': 'bestaudio/best',
+          'outtmpl': filename,
+          }
+        with YoutubeDL(ydl_opts) as ydl:
+          ydl.download([url])
+        await msg.add_reaction(UnicodeCheck)        
+      else:
+        await msg.add_reaction(UnicodeCancel) 
     else:
       await ctx.send("urlが有効ではありません")
 
@@ -80,12 +85,15 @@ class extensions(commands.Cog):
         defaultextension = "mp4"
         )
       print(filename)
-      ydl_opts = {
-        'format': 'best',
-        'outtmpl': filename,
-        }
-      with YoutubeDL(ydl_opts) as ydl:
-        ydl.download([url])
-      await msg.add_reaction(UnicodeCheck)
+      if filename:
+        ydl_opts = {
+          'format': 'best',
+          'outtmpl': filename,
+          }
+        with YoutubeDL(ydl_opts) as ydl:
+          ydl.download([url])
+        await msg.add_reaction(UnicodeCheck)
+      else:
+        await msg.add_reaction(UnicodeCancel)
     else:
       await ctx.send("urlが有効ではありません")
