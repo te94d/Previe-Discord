@@ -10,5 +10,5 @@ jobs:
       - uses: alex-page/github-project-automation-plus@v0.3.0
         with:
           project: xyz94
-          column: issues
+          column: log
           repo-token: ${{ secrets.GH_TOKEN }}
