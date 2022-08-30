@@ -44,7 +44,7 @@ class extensions(commands.Cog):
 
   @commands.command()
   async def help(self, ctx):
-    await ctx.send("コマンド : 説明\n```>mp3 url : youtubeとtwitterの動画をmp3でDL\n>mp4 url : youtubeとtwitterの動画をmp4でDL\nDLが開始すると"+UnicodeDownload+"が付与されます\nDLが完了すると"+UnicodeCheck+"が付与されます```※DLしたファイルの2次配布は止めましょう")
+    await ctx.send("コマンド : 説明\n```>mp3 url : youtubeとtwitterの音声をmp3でDL\n>mp4 url : youtubeとtwitterの動画をmp4でDL\nDLが開始すると"+UnicodeDownload+"が付与されます\nDLが完了すると"+UnicodeCheck+"が付与されます```※DLしたファイルの2次配布は止めましょう")
 
   @commands.command()
   async def mp3(self, ctx, url):
@@ -70,7 +70,7 @@ class extensions(commands.Cog):
       else:
         await msg.add_reaction(UnicodeCancel) 
     else:
-      await ctx.send("urlが有効ではありません")
+      await ctx.send("urlが有効ではありません\nこのコマンドではyoutubeかtwitterの音声をダウンロードできます")
 
   @commands.command()
   async def mp4(self, ctx, url):
@@ -96,4 +96,4 @@ class extensions(commands.Cog):
       else:
         await msg.add_reaction(UnicodeCancel)
     else:
-      await ctx.send("urlが有効ではありません")
+      await ctx.send("urlが有効ではありません\nこのコマンドではyoutubeかtwitterの動画をダウンロードできます")
