@@ -12,4 +12,4 @@ jobs:
       - uses: actions/add-to-project@main
         with:
           project-url: https://github.com/users/te94d/projects/5
-          repo-token: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ secrets.GH_TOKEN }}
