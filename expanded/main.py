@@ -3,6 +3,7 @@ import random
 import os
 from discord.ext import commands
 from dotenv import load_dotenv
+from otherCmd import extensions
 from ytdl import extensions
 
 bot = commands.Bot(command_prefix='>')
