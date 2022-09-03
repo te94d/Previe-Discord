@@ -22,5 +22,6 @@ class other_commands(commands.Cog):
 
   @commands.command()
   async def help(self, ctx):
-    await ctx.send("コマンド : 説明\n```>mp3 url : youtubeとtwitterの音声をmp3でDL\n>mp4 url : youtubeとtwitterの動画をmp4でDL\nDLが開始すると"+UnicodeDownload+"が付与されます\nDLが完了すると"+UnicodeCheck+"が付与されます```※DLしたファイルの2次配布は止めましょう")
+    await ctx.send("動画DLコマンド\n```>mp3 [url] : youtubeとtwitterの音声をmp3でDL\n>mp4 [url] : youtubeとtwitterの動画をmp4でDL\n\nDLが開始すると"+UnicodeDownload+"が付与されます\nDLが完了すると"+UnicodeCheck+"が付与されます\n※DLしたファイルの2次配布は止めましょう```")
+    await ctx.send("管理用コマンド\n```>del [削除したいメッセージ数] : 指定したメッセージ数を削除\n\n※以下のコマンドを使用するにはAdminという名前のロールが必要です。```")
   
