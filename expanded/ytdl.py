@@ -30,7 +30,7 @@ def check_url(url):
     flag = False
     return flag
 
-class extensions(commands.Cog):
+class ytdl_commands(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
