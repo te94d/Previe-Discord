@@ -30,6 +30,12 @@ def check_url(url):
     flag = False
     return flag
 
+def video_meta(url):
+  ydl_opts = {} 
+  with YoutubeDL(ydl_opts) as ydl: 
+    meta = ydl.extract_info(url, download= False) 
+    return meta
+
 class ytdl_commands(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
@@ -39,11 +45,12 @@ class ytdl_commands(commands.Cog):
     if check_url(url) == True:
       msg = await ctx.send("mp3でダウンロード")
       await msg.add_reaction(UnicodeDownload)
+      meta = video_meta(url)
       filename = filedialog.asksaveasfilename(
         title = "名前を付けて保存",
         filetypes = [("mp3", ".mp3")], # ファイルフィルタ
         initialdir = "./", # 自分自身のディレクトリ
-        initialfile = "tmp", # 名前の初期値
+        initialfile = meta['title'], # title
         defaultextension = "mp3"
         )
       print(filename)
@@ -65,11 +72,12 @@ class ytdl_commands(commands.Cog):
     if check_url(url) == True:
       msg = await ctx.send("mp4でダウンロード")
       await msg.add_reaction(UnicodeDownload)
+      meta = video_meta(url)
       filename = filedialog.asksaveasfilename(
         title = "名前を付けて保存",
         filetypes = [("mp4", ".mp4")], # ファイルフィルタ
         initialdir = "./", # 自分自身のディレクトリ
-        initialfile = "tmp", # 名前の初期値
+        initialfile = meta['title'], # title
         defaultextension = "mp4"
         )
       print(filename)
