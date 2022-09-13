@@ -6,6 +6,8 @@ discord botをつくっていく随時機能追加していきたい
 |:--------------|:-----------|
 | >mp3 [url] | youtubeやtwitterの動画をmp3でDL |
 | >mp4 [url] | youtubeやtwitterの動画をmp4でDL |
+| >info [url] | youtubeとtwitterの動画のコンテンツ関連の情報を表示 |
+| >codec [url] | youtubeの動画のコーデック関連の情報を表示 |
 ### otherCmd.py
 | コマンド | 説明 |
 |:--------------|:-----------|
