@@ -30,6 +30,7 @@ def check_url(url):
     flag = False
     return flag
 
+# video meta
 def video_meta(url):
   ydl_opts = {} 
   with YoutubeDL(ydl_opts) as ydl: 
@@ -48,7 +49,7 @@ class ytdl_commands(commands.Cog):
       meta = video_meta(url)
       filename = filedialog.asksaveasfilename(
         title = "名前を付けて保存",
-        filetypes = [("mp3", ".mp3")], # ファイルフィルタ
+        filetypes = [("mp3", ".mp3"),("aac", ".aac"),("wav", ".wav"),("m4a", ".m4a")], # ファイルフィルタ
         initialdir = "./", # 自分自身のディレクトリ
         initialfile = meta['title'], # title
         defaultextension = "mp3"
@@ -75,7 +76,7 @@ class ytdl_commands(commands.Cog):
       meta = video_meta(url)
       filename = filedialog.asksaveasfilename(
         title = "名前を付けて保存",
-        filetypes = [("mp4", ".mp4")], # ファイルフィルタ
+        filetypes = [("mp4", ".mp4"),("webm", ".webm"),("flv", ".flv")], # ファイルフィルタ
         initialdir = "./", # 自分自身のディレクトリ
         initialfile = meta['title'], # title
         defaultextension = "mp4"
