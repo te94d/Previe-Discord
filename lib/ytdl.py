@@ -139,3 +139,28 @@ class ytdl_commands(commands.Cog):
       await ctx.send(embed=embed)
     else:     
       await ctx.send("urlが有効ではありません")
+
+  @commands.command()
+  async def codec(self, ctx, url):
+    if check_url(url)[1] == 1:
+      meta = video_meta(url)
+      embed = discord.Embed()
+      embed.color = 0xFFBF11
+      embed.title = 'Codec Information'
+      embed.description = 'コーデック関連の情報'
+      embed.set_author(name='MP94',
+        icon_url=self.bot.user.avatar_url)
+      embed.set_image(
+        url = meta['thumbnail']
+      )
+      embed.add_field(name='タイトル', value='```'+meta['title']+'```', inline=False)
+      embed.add_field(name='Audio Average Bit-rate', value='```'+str(meta['abr'])+'```', inline=False)
+      embed.add_field(name='Video Average Bit-rate', value='```'+str(meta['vbr'])+'```', inline=False)
+      embed.add_field(name='Audio Codec', value='```'+meta['acodec']+'```', inline=False)
+      embed.add_field(name='Video Codec', value='```'+meta['vcodec']+'```', inline=False)
+      embed.add_field(name='fps', value='```'+str(meta['fps'])+'```')
+      embed.add_field(name='ext', value='```'+meta['ext']+'```')
+      embed.add_field(name='URL', value='```'+url+'```', inline=False)
+      await ctx.send(embed=embed)
+    else:     
+      await ctx.send("urlが有効ではありません")
