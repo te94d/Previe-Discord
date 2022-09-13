@@ -22,9 +22,21 @@ class other_commands(commands.Cog):
 
   @commands.command()
   async def help(self, ctx):
-    await ctx.send("動画DLコマンド\n```>mp3 [url] : youtubeとtwitterの音声をmp3でDL\n>mp4 [url] : youtubeとtwitterの動画をmp4でDL\n\nDLが開始すると"+UnicodeDownload+"が付与されます\nDLが完了すると"+UnicodeCheck+"が付与されます\n※DLしたファイルの2次配布は止めましょう```")
-    await ctx.send("管理用コマンド\n```>rem [削除したいメッセージ数] : 指定したメッセージ数を削除```")
-  
+    embed = discord.Embed()
+    embed.color = 0x8ED1E0
+    embed.title = 'Commands'
+    embed.description = 'mp94で使用できるコマンド一覧'
+    embed.set_author(name='MP94', url='https://google.com',
+      icon_url=self.bot.user.avatar_url)
+    #embed.set_image(
+    #  url = 'https://'
+    #)
+    embed.add_field(name='DLコマンド', value='```>mp3 [url] : youtubeとtwitterの音声をmp3でDL``````>mp4 [url] : youtubeとtwitterの動画をmp4でDL```\nDLが開始すると'+UnicodeDownload+'が付与されます\nDLが完了すると'+UnicodeCheck+'が付与されます\n※DLしたファイルの2次配布は止めましょう\n', inline=False)
+    embed.add_field(name='動画の詳細表示', value='```>info [url] : youtubeとtwitterの動画のコンテンツ関連の情報を表示``````>codec [url] : youtubeの動画のコーデック関連の情報を表示```', inline=False)
+    embed.add_field(name='管理用コマンド', value='```>rem [削除したいメッセージ数] : 指定したメッセージ数を削除```', inline=False)
+    embed.set_footer(text="vertion 1.2", icon_url=ctx.guild.icon_url)
+    await ctx.send(embed=embed)
+
   @commands.command()
   async def rem(self, ctx, target:int):
     channel = ctx.message.channel
