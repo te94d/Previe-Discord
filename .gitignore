@@ -1,2 +1,3 @@
-# .envをgitの追跡から除外
+# gitの追跡から除外
 /.env
+download/
