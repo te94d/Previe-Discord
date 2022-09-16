@@ -1,5 +1,8 @@
-# discord-bot
+# Previe-Discord
 discord botをつくっていく随時機能追加していきたい
+### Previeって？  
+Preserve + Movie = Previe（プレビィー）  
+SNSプラットフォームの動画をローカルに保存してくれるBot
 ## 開発環境
 ![](https://img.shields.io/badge/python-v3.10.6-blue)
 ![](https://img.shields.io/badge/pip-v22.2.2-blue)
