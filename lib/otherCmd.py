@@ -25,8 +25,8 @@ class other_commands(commands.Cog):
     embed = discord.Embed()
     embed.color = 0x8ED1E0
     embed.title = 'Commands'
-    embed.description = 'mp94で使用できるコマンド一覧'
-    embed.set_author(name='MP94', url='https://google.com',
+    embed.description = 'Previeで使用できるコマンド一覧'
+    embed.set_author(name='Previe', url='https://github.com/te94d/Previe-Discord',
       icon_url=self.bot.user.avatar_url)
     #embed.set_image(
     #  url = 'https://'
