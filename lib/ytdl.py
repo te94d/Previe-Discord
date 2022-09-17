@@ -105,7 +105,7 @@ class ytdl_commands(commands.Cog):
       embed.color = 0xFFBF11
       embed.title = 'Contents Information'
       embed.description = 'コンテンツ関連の情報'
-      embed.set_author(name='MP94',
+      embed.set_author(name='Previe',
         icon_url=self.bot.user.avatar_url)
       embed.set_image(
         url = meta['thumbnail']
@@ -125,7 +125,7 @@ class ytdl_commands(commands.Cog):
       embed.color = 0xFFBF11
       embed.title = 'Contents Information'
       embed.description = 'コンテンツ関連の情報'
-      embed.set_author(name='MP94',
+      embed.set_author(name='Previe',
         icon_url=self.bot.user.avatar_url)
       embed.set_image(
         url = meta['thumbnail']
@@ -148,7 +148,7 @@ class ytdl_commands(commands.Cog):
       embed.color = 0xFFBF11
       embed.title = 'Codec Information'
       embed.description = 'コーデック関連の情報'
-      embed.set_author(name='MP94',
+      embed.set_author(name='Previe',
         icon_url=self.bot.user.avatar_url)
       embed.set_image(
         url = meta['thumbnail']
