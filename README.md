@@ -8,19 +8,6 @@ SNSプラットフォームの動画をローカルに保存してくれるBot
 ![](https://img.shields.io/badge/pip-v22.2.2-blue)
 ![](https://img.shields.io/badge/discord.py-v1.7.3-blue)
 ![](https://img.shields.io/badge/yt--dlp-v2022.8.8-blue) 
-## できること
-### ytdl.py
-| コマンド | 説明 |
-|:--------------|:-----------|
-| >mp3 [url] | youtubeやtwitterの動画をmp3でDL |
-| >mp4 [url] | youtubeやtwitterの動画をmp4でDL |
-| >info [url] | youtubeとtwitterの動画のコンテンツ関連の情報を表示 |
-| >codec [url] | youtubeの動画のコーデック関連の情報を表示 |
-### otherCmd.py
-| コマンド | 説明 |
-|:--------------|:-----------|
-| >help | 各コマンドの表示 |
-| >rem [n] | 指定したメッセージ数を削除 |
 ## ビルド
 [python3](https://www.python.org/) をインストール
 ### パッケージのインストール
@@ -35,3 +22,16 @@ $ pip install python-dotenv
 ```
 discord_token = <token>
 ```
+## できること
+### ytdl.py
+| コマンド | 説明 |
+|:--------------|:-----------|
+| >mp3 [url] | youtubeやtwitterの動画をmp3でDL |
+| >mp4 [url] | youtubeやtwitterの動画をmp4でDL |
+| >info [url] | youtubeとtwitterの動画のコンテンツ関連の情報を表示 |
+| >codec [url] | youtubeの動画のコーデック関連の情報を表示 |
+### otherCmd.py
+| コマンド | 説明 |
+|:--------------|:-----------|
+| >help | 各コマンドの表示 |
+| >rem [n] | 指定したメッセージ数を削除 |
