@@ -22,12 +22,14 @@ SNSプラットフォームの動画をローカルに保存してくれるBot
 | >help | 各コマンドの表示 |
 | >rem [n] | 指定したメッセージ数を削除 |
 ## ビルド
+[python3](https://www.python.org/) をインストール
+### パッケージのインストール
 ```
 $ pip install -U discord
 $ pip install yt-dlp
 $ pip install python-dotenv
 ```
-ffmpegのページにアクセスしwindowsビルドのものをダウンロードする。  
+[ffmpeg](https://ffmpeg.org/) にアクセスしwindowsビルドのものをダウンロードする。  
 ダウンロードしたファイルを解凍し、binフォルダの中にある`ffmpeg.exe`を`ytdl.py`と同じ階層に置いておく。  
 `.env`ファイルを作成し`.env.sample`の中身を記述する。
 ```
