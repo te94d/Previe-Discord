@@ -1,4 +1,4 @@
-# Previe-Discord
+# Previe-Discord.py
 discord botをつくっていく随時機能追加していきたい
 ### Previeって？  
 Preserve + Movie = Previe（プレビィー）  
