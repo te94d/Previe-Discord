@@ -22,6 +22,10 @@ $ pip install python-dotenv
 ```
 discord_token = <token>
 ```
+### 実行
+```
+$ python main.py
+```
 ## できること
 ### ytdl.py
 | コマンド | 説明 |
