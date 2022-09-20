@@ -1,5 +1,5 @@
 # Previe-Discord.py
-discord botをつくっていく随時機能追加していきたい
+リファクタリング版 [Previe-Discord.js](https://github.com/te94d/Previe-Discord.js)
 ### Previeって？  
 Preserve + Movie = Previe（プレビィー）  
 SNSプラットフォームの動画をローカルに保存してくれるBot
